@@ -17,7 +17,8 @@ from ctypes import *
 
 ```python
 try:
-    _libdirp = cdll.libdirp
+    #_libdirp = cdll.libdirp
+    _libdirp = cdll.LoadLibrary("libdirp.dll")
     DJI.set_dirp_dll(_libdirp)
 except FileNotFoundError as err:
     print("Please copy libdirp.dll, lib_dirp.dll, lib_girp.dll, lib_iirp.dll, and lib_list.ini. to your folder.")
