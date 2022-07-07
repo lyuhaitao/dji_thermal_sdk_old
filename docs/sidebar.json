@@ -1,7 +1,6 @@
 {
   "dji_thermal_sdk": {
     "Overview": "/",
-    "DJI Thermal SDK": "core_dji.html",
-    "Title": "core_utility.html"
+    "DJI Thermal SDK": "core_utility.html"
   }
 }
