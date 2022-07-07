@@ -2,11 +2,6 @@
 > use ctypes to capsulate the DJI Thermal SDK so that we can directly use python to process thermal images. 
 
 
-```python
-%load_ext autoreload
-%autoreload 2
-```
-
 This version of DJI Thermal SDK is 1.3, which was published on 05/15/2022
 
 ## Install

@@ -75,8 +75,8 @@ index = {"set_dirp_dll": "00_core_dji.ipynb",
 modules = ["dji_sdk.py",
            "utility.py"]
 
-doc_url = "https://haitaolyu.github.io/dji_thermal_sdk/"
+doc_url = "https://lyuhaitao.github.io/dji_thermal_sdk/"
 
-git_url = "https://github.com/haitaolyu/dji_thermal_sdk/tree/master/"
+git_url = "https://github.com/lyuhaitao/dji_thermal_sdk/tree/master/"
 
 def custom_doc_links(name): return None
