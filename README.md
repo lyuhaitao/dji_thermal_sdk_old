@@ -8,8 +8,19 @@
 ```
 
 ```python
+import dji_thermal_sdk.dji_sdk as DJI
 from dji_thermal_sdk.dji_sdk import *
 import dji_thermal_sdk.utility as utility
+import ctypes as CT
+from ctypes import *
+```
+
+```python
+try:
+    _libdirp = cdll.libdirp
+    DJI.set_dirp_dll(_libdirp)
+except FileNotFoundError as err:
+    print("Please copy libdirp.dll, lib_dirp.dll, lib_girp.dll, lib_iirp.dll, and lib_list.ini. to your folder.")
 ```
 
 This version of DJI Thermal SDK is 1.3, which was published on 05/15/2022
@@ -27,8 +38,6 @@ Get the handle of a R-JPEG image.
 ```python
 import os
 import matplotlib.pyplot as plt
-import ctypes as CT
-from ctypes import *
 ```
 
 ```python
@@ -39,13 +48,7 @@ print("File Name\tFile Path")
 for f in ret:
     print(f"{f.file_name}\t{f.file_path}")
 #
-```
 
-    File Name	File Path
-    Deer_Goats_Unsure__2022-02-02__02-42-12(2).JPG	dataset\Deer_Goats_Unsure__2022-02-02__02-42-12(2).JPG
-    
-
-```python
 rd = ret[0].file_path
 with open(rd, 'rb') as f:
     content = f.read()
@@ -66,10 +69,12 @@ if ret == 0:
 print(f"DIRP_HANDLE: {DIRP_HANDLE}  address: {hex(DIRP_HANDLE.value)} ")
 ```
 
+    File Name	File Path
+    Deer_Goats_Unsure__2022-02-02__02-42-12(2).JPG	dataset\Deer_Goats_Unsure__2022-02-02__02-42-12(2).JPG
     File size: c_long(1367428)
     ret = 0
     successfully get the r-jpeg handle.
-    DIRP_HANDLE: c_void_p(2193894526576)  address: 0x1fece4dce70 
+    DIRP_HANDLE: c_void_p(2348746175776)  address: 0x222dc2e7520 
     
 
 Get the resolution of a R-jpge image  
