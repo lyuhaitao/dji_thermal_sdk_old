@@ -23,17 +23,24 @@ Normally, DJI SDK DLLs include `libdirp.dll, libv_dirp.dll, libv_girp.dll, libv_
 you should put all the dlls and your codes in a same folder.
 
 ```python
+'''
 try:
     _libdirp = cdll.LoadLibrary("libdirp.dll")
     DJI.set_dirp_dll(_libdirp)
 except FileNotFoundError as err:
     print(err)
-#
 print(DJI._libdirp)
+'''
+import os
+os.path.exists("libdirp.dll")
 ```
 
-    <CDLL 'libdirp.dll', handle 7ffe6f310000 at 0x1aa05af9f40>
-    
+
+
+
+    True
+
+
 
 ## Get the handle of a R-JPEG image
 

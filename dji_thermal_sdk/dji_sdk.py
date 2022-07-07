@@ -144,6 +144,10 @@ class dirp_rjpeg_version_t (Structure):
     pass
 
 # Cell
+
+
+
+# Cell
 def set_dirp_dll(libdirp):
     global _libdirp
     _libdirp = libdirp
