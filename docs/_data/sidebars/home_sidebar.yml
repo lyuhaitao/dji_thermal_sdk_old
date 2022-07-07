@@ -11,6 +11,9 @@ entries:
       url: /
     - output: web,pdf
       title: DJI Thermal SDK
+      url: core_dji.html
+    - output: web,pdf
+      title: Utility
       url: core_utility.html
     output: web
     title: dji_thermal_sdk

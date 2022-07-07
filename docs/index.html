@@ -29,6 +29,27 @@ nb_path: "index.ipynb"
 </div>
     {% endraw %}
 
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nbdev</span>
+<span class="kn">from</span> <span class="nn">dji_thermal_sdk.dji_sdk</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">dji_thermal_sdk.dji_sdk</span> <span class="k">as</span> <span class="nn">DJI</span>
+<span class="kn">import</span> <span class="nn">ctypes</span> <span class="k">as</span> <span class="nn">CT</span>
+<span class="kn">from</span> <span class="nn">ctypes</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This version of DJI Thermal SDK is 1.3, which was published on 05/15/2022</p>
@@ -51,14 +72,115 @@ nb_path: "index.ipynb"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="How-to-use">How to use<a class="anchor-link" href="#How-to-use"> </a></h2>
+<h2 id="Load-DLL">Load DLL<a class="anchor-link" href="#Load-DLL"> </a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Get the handle of a R-JPEG image.</p>
+<p>Normally, DJI SDK DLLs include <code>libdirp.dll, libv_dirp.dll, libv_girp.dll, libv_iirp.dll, libv_list.ini</code>.</p>
+<p>you should put all the dlls and your codes in a same folder.</p>
 
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">_libdirp</span> <span class="o">=</span> <span class="n">cdll</span><span class="o">.</span><span class="n">LoadLibrary</span><span class="p">(</span><span class="s2">&quot;libdirp.dll&quot;</span><span class="p">)</span>
+    <span class="n">DJI</span><span class="o">.</span><span class="n">set_dirp_dll</span><span class="p">(</span><span class="n">_libdirp</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="c1">#</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">DJI</span><span class="o">.</span><span class="n">_libdirp</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;CDLL &#39;libdirp.dll&#39;, handle 7ffe6f310000 at 0x1aa05af9f40&gt;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Get-the-handle-of-a-R-JPEG-image">Get the handle of a R-JPEG image<a class="anchor-link" href="#Get-the-handle-of-a-R-JPEG-image"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>DIRP_HANDLE is a void pointer, and it has been definded.<br>
+you can get it by <code>package.DIRP_HANDLE</code></p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nbdev</span><span class="o">.</span><span class="n">show_doc</span><span class="p">(</span><span class="n">dirp_create_from_rjpeg</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="dirp_create_from_rjpeg" class="doc_header"><code>dirp_create_from_rjpeg</code><a href="https://github.com/lyuhaitao/dji_thermal_sdk/tree/master/dji_thermal_sdk/dji_sdk.py#L162" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>dirp_create_from_rjpeg</code>(<strong><code>data</code></strong>, <strong><code>size</code></strong>, <strong><code>ph</code></strong>)</p>
+</blockquote>
+<p>Parameters:
+    [in] data: R-JPEG binary data buffer pointer
+    [in] size: R-JPEG binary data buffer size in bytes
+    [out]ph  : DIRP API handle pointer</p>
+
+<pre><code>    - reminder: use two-level pointer to assign value to one-level pointer
+</code></pre>
+<p>Return:
+    int return code dirp_ret_code_e</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Get-the-resolution-of-a-R-JPEG-image">Get the resolution of a R-JPEG image<a class="anchor-link" href="#Get-the-resolution-of-a-R-JPEG-image"> </a></h2>
 </div>
 </div>
 </div>
