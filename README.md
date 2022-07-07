@@ -20,7 +20,7 @@ This version of DJI Thermal SDK is 1.3, which was published on 05/15/2022
 
 ## How to use
 
-### Get the handle of a R-JPEG image.  
+Get the handle of a R-JPEG image.  
 - A handle is a void pointer, which has been defined to be `DIRP_HANDLE`.
 - invoke the function `dirp_create_from_rjpeg`
 
@@ -72,7 +72,7 @@ print(f"DIRP_HANDLE: {DIRP_HANDLE}  address: {hex(DIRP_HANDLE.value)} ")
     DIRP_HANDLE: c_void_p(2193894526576)  address: 0x1fece4dce70 
     
 
-### Get the resolution of a R-jpge image  
+Get the resolution of a R-jpge image  
 - declare `dirp_resolution_t` variable and create a instance.  
 - invoke the function `dirp_get_rjpeg_resolution`
 
