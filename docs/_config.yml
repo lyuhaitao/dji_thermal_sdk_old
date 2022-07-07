@@ -1,7 +1,7 @@
-repository: {user}/{lib_name}
+repository: lyuhaitao/dji_thermal_sdk
 output: web
-topnav_title: {lib_name}
-site_title: {lib_name}
+topnav_title: dji_thermal_sdk
+site_title: dji_thermal_sdk
 company_name: Dr. Haitao Lyu
 description: use ctypes to invoke the DJI thermal SDK to process images.
 # Set to false to disable KaTeX math
