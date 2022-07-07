@@ -2,8 +2,7 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"set_dirp_dll": "00_core_dji.ipynb",
-         "DIRP_PSEUDO_COLOR_WHITEHOT": "00_core_dji.ipynb",
+index = {"DIRP_PSEUDO_COLOR_WHITEHOT": "00_core_dji.ipynb",
          "DIRP_PSEUDO_COLOR_FULGURITE": "00_core_dji.ipynb",
          "DIRP_PSEUDO_COLOR_IRONRED": "00_core_dji.ipynb",
          "DIRP_PSEUDO_COLOR_HOTIRON": "00_core_dji.ipynb",
@@ -43,6 +42,7 @@ index = {"set_dirp_dll": "00_core_dji.ipynb",
          "dirp_measurement_params_t": "00_core_dji.ipynb",
          "dirp_resolution_t": "00_core_dji.ipynb",
          "dirp_rjpeg_version_t": "00_core_dji.ipynb",
+         "set_dirp_dll": "00_core_dji.ipynb",
          "dirp_create_from_rjpeg": "00_core_dji.ipynb",
          "dirp_destroy": "00_core_dji.ipynb",
          "dirp_get_api_version": "00_core_dji.ipynb",

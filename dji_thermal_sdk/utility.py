@@ -13,7 +13,9 @@ class LhtFile:
     def __init__(self,fileName, filePath):
         self.file_name = fileName
         self.file_path = filePath
-#export
+
+
+# Cell
 def FindFilesByExtension(root_directory, extension):
     '''
     Filter all files based on the extention.

@@ -59,3 +59,5 @@ Return:
 
 
 ## Get the resolution of a R-JPEG image
+
+12
