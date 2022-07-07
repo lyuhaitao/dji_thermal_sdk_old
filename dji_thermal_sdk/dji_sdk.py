@@ -22,7 +22,6 @@ __all__ = ['DIRP_PSEUDO_COLOR_WHITEHOT', 'DIRP_PSEUDO_COLOR_FULGURITE', 'DIRP_PS
 # Cell
 import ctypes as CT
 from ctypes import *
-_libc = cdll.msvcrt
 try:
     _libdirp = cdll.libdirp
 except FileNotFoundError as err:
