@@ -22,10 +22,7 @@ __all__ = ['DIRP_PSEUDO_COLOR_WHITEHOT', 'DIRP_PSEUDO_COLOR_FULGURITE', 'DIRP_PS
 # Cell
 import ctypes as CT
 from ctypes import *
-try:
-    _libdirp = cdll.libdirp
-except FileNotFoundError as err:
-    print("Please copy libdirp.dll, lib_dirp.dll, lib_girp.dll, lib_iirp.dll, and lib_list.ini. to your folder.")
+
 
 # Cell
 # dirp_pseudo_color_e
